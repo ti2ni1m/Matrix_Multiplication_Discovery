@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.2.25)  11 MAR 2025 15:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.2.25)  12 MAR 2025 18:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -279,37 +279,48 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Picture1.png, id=11, 453.19313pt x 167.12437pt>
+<Picture1.png, id=15, 453.19313pt x 167.12437pt>
 File: Picture1.png Graphic file (type png)
 <use Picture1.png>
-Package pdftex.def Info: Picture1.png  used on input line 21.
+Package pdftex.def Info: Picture1.png  used on input line 22.
 (pdftex.def)             Requested size: 276.00105pt x 101.77994pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 
 [1
 
-{C:/Users/manan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Picture1.png>]
+{C:/Users/manan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+Overfull \hbox (10.53583pt too wide) in paragraph at lines 30--32
+\OT1/cmr/m/n/10 clas-si-cal meth-ods. The time com-plex-ity reached ap-prox-i-mately $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 )$ through
+ []
 
-[2] (propoasl.aux)
+
+
+[2 <./Picture1.png>]
+
+[3] (propoasl.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `propoasl.out' has not changed.
-(rerunfilecheck)             Checksum: 01F2865A751F451CC5A8F00CCDD58C47;234.
+(rerunfilecheck)             Checksum: FC2175483C178D252E6E660357F31C25;332.
  ) 
 Here is how much of TeX's memory you used:
- 9678 strings out of 473523
- 148630 string characters out of 5714630
- 544607 words of memory out of 5000000
- 32795 multiletter control sequences out of 15000+600000
+ 9681 strings out of 473523
+ 148656 string characters out of 5714630
+ 545607 words of memory out of 5000000
+ 32796 multiletter control sequences out of 15000+600000
  566431 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,563b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on propoasl.pdf (2 pages, 184358 bytes).
+ 75i,7n,79p,866b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on propoasl.pdf (3 pages, 208192 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 6 named destinations out of 1000 (max. 500000)
- 22 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 30 words of extra memory for PDF output out of 10000 (max. 10000000)
 
