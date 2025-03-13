@@ -18,7 +18,7 @@ More efficient algorithms, such as Strassen's algorithm, demonstrates that the p
 Through research presented in \textit{“Discovering Faster Matrix Multiplication”} it is found out that reinforcement learning technique serves as a method to extend previous work through accelerated mathematical exploration of matrix multiplication. The reinforcement learning agent AlphaZero serves as a basis for AlphaTensor to determine optimal tensor decompositions in finite factor spaces by playing a single-player game. The automated approach detected both standard and new algorithms which proved better than traditional methods for smaller matrix dimensions.
 
 The research expands previous work by studying matrix multiplication mathematics while implementing AlphaZero-inspired reinforcement learning models to evaluate their achieved performance.
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{Picture1.png}
     \caption{Tensor representation of matrix multiplication as a rank-3 tensor. Lower-rank decompositions reduce scalar multiplications. (Source: AlphaTensor paper)}
@@ -39,5 +39,30 @@ The study demonstrated how RL stands as a forceful method for symbolically under
 The proposed synthesis of classical algorithms and tensor decomposition theory and reinforcement learning serves to expand scientific knowledge in matrix multiplication optimisation. The research will adapt AlphaTensor's reinforcement learning approach to evaluate discovered algorithms for their practical value in transformer computations which require heavy use of matrices.
 
 \section{Methodology}
+This project uses a defined procedure which includes the exploration and implementation and evaluation of machine learning algorithms to boost matrix multiplication speed. An approach with three main elements will lead the project which includes creating the mathematical foundation and designing the reinforcement learning system and evaluating the discovered algorithms. 
+
+This project bases its foundation on comprehension of the mathematical concepts that govern matrix multiplication. The concept of tensor decomposition will be studied because it shows how matrix multiplication operates as a rank-3 tensor. Lower-rank decomposition of this tensor stands as the goal because it leads to fewer necessary scalar multiplications. The evaluation of new algorithms will use existing methods and tensor rank analysis and bilinear complexity comparison with Strassen's and Coppersmith-Winograd algorithms.
+
+The present work adopts an AlphaZero framework to create a reinforcement learning system shaped after the approach from the article. In this setup the RL agent views matrix multiplication as a game that defines states through partial decomposition steps and employs actions through choices of matrix sub-block combination. MCTS explores while the neural network evaluates policies for the agent which improves its strategy through self-play during multiple iterations. The reward signals will be established through scalar multiplication counts to direct algorithm discovery toward less complex methods. A training process will operate on basic matrix dimensions \( 3 \times 3 \) to achieve successful algorithm discovery despite computational restrictions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Picture2.png}
+    \caption{AlphaTensor's reinforcement learning framework for algorithm discovery. (Source: AlphaTensor paper)}
+    \label{fig:alphatensor-framework}
+\end{figure}
+
+The research will analyse discovered algorithm performance through evaluations with traditional algorithms that include the classical cubic algorithm and Strassen’s algorithm. The evaluation framework uses the count for scalar multiplication operations together with runtime performance measurements coupled with scaling abilities for bigger matrix sizes. A simplified transformer model will receive these discovered algorithms to determine their effect on the runtime of self-attention computations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Picture3.png}
+    \caption{Speed ups of the AlphaTensor-discovered algorithm (Source: AlphaTensor paper)}
+    \label{fig:speedups-alphatensor}
+\end{figure}
+
+The approach creates a systematic investigation of matrix multiplication algorithms through machine learning which extends human intuition capabilities beyond current boundaries.
+
+\section{Expected Results and Analysis}
 
 \end{document}

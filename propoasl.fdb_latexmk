@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741762911.3316 "c:/Users/manan/OneDrive/Desktop/University/Year 4/Discovery Project/project-ti2ni1m/propoasl.tex" "propoasl.pdf" "propoasl" 1741762912.0021 0
-  "C:/Users/manan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741666246 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1741826521.84318 "c:/Users/manan/OneDrive/Desktop/University/Year 4/Discovery Project/project-ti2ni1m/propoasl.tex" "propoasl.pdf" "propoasl" 1741826522.58511 0
+  "C:/Users/manan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741763851 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/manan/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1740476686 12015783 42ac8e4c4988963d41ab7c72d4455ce8 ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -63,6 +63,7 @@
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1738160243 8448 5cf247d4bd0c7d5d711bbbdf111fae2e ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1739279216 46850 d87daedc2abdc653769a6f1067849fe0 ""
+  "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty" 1469023953 6916 16d2656a1984957e674b149555f1ea1d ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.cfg" 1465894292 1224 978390e9c2234eab29404bc21b268d1e ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/graphics-def/pdftex.def" 1713599642 19440 9da9dcbb27470349a580fca7372d454b ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/graphics/graphics.sty" 1730544106 18363 dee506cb8d56825d8a4d020f5d5f8704 ""
@@ -82,10 +83,12 @@
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/manan/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "Picture1.png" 1741666420 106049 bec190c00a844ff5d42ea0d84abd9273 ""
-  "c:/Users/manan/OneDrive/Desktop/University/Year 4/Discovery Project/project-ti2ni1m/propoasl.tex" 1741762910 5155 ac0edf94954661af39afb310b9bbcb03 ""
-  "propoasl.aux" 1741762911 965 cdb0fd960efd79e94e639317f2a05fed "pdflatex"
-  "propoasl.out" 1741762911 332 fc2175483c178d252e6e660357f31c25 "pdflatex"
-  "propoasl.tex" 1741762910 5155 ac0edf94954661af39afb310b9bbcb03 ""
+  "Picture2.png" 1741781752 78078 7280a28c95f940250553607b8b3c7d30 ""
+  "Picture3.png" 1741782507 97812 98f4631a8e6baff66ef7cdc1aae4326e ""
+  "c:/Users/manan/OneDrive/Desktop/University/Year 4/Discovery Project/project-ti2ni1m/propoasl.tex" 1741826520 8076 1b167bbc2d9f2da404e15e0088eb66f2 ""
+  "propoasl.aux" 1741826522 1782 fef280fa69b6a93f97a1397256c6f91e "pdflatex"
+  "propoasl.out" 1741826522 529 c7458a03078c2af3a37ed5ad4f092d9b "pdflatex"
+  "propoasl.tex" 1741826520 8076 1b167bbc2d9f2da404e15e0088eb66f2 ""
   (generated)
   "propoasl.aux"
   "propoasl.log"
