@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.13)  15 MAR 2025 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.13)  15 MAR 2025 12:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -289,7 +289,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Picture1.png, id=23, 453.19313pt x 167.12437pt>
+<Picture1.png, id=31, 453.19313pt x 167.12437pt>
 File: Picture1.png Graphic file (type png)
 <use Picture1.png>
 Package pdftex.def Info: Picture1.png  used on input line 24.
@@ -304,7 +304,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has
                                                   \__shipout_drop_firstpage_...
 l.34 
       <./Picture1.png>]
-<Picture2.png, id=41, 453.19313pt x 259.7203pt>
+<Picture2.png, id=49, 453.19313pt x 259.7203pt>
 File: Picture2.png Graphic file (type png)
 <use Picture2.png>
 Package pdftex.def Info: Picture2.png  used on input line 51.
@@ -312,7 +312,7 @@ Package pdftex.def Info: Picture2.png  used on input line 51.
 
 
 [2]
-<Picture3.png, id=46, 453.19313pt x 219.82124pt>
+<Picture3.png, id=54, 453.19313pt x 219.82124pt>
 File: Picture3.png Graphic file (type png)
 <use Picture3.png>
 Package pdftex.def Info: Picture3.png  used on input line 60.
@@ -323,57 +323,59 @@ Package pdftex.def Info: Picture3.png  used on input line 60.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.71 
+l.72 
      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.71 
+l.72 
       <./Picture2.png> <./Picture3.png>]
-<Picture4.png, id=55, 453.19313pt x 292.09125pt>
+
+[4]
+<Picture4.png, id=71, 453.19313pt x 292.09125pt>
 File: Picture4.png Graphic file (type png)
 <use Picture4.png>
-Package pdftex.def Info: Picture4.png  used on input line 74.
+Package pdftex.def Info: Picture4.png  used on input line 91.
 (pdftex.def)             Requested size: 281.85587pt x 181.66072pt.
-<Picture5.png, id=56, 453.19313pt x 264.99pt>
+<Picture5.png, id=72, 453.19313pt x 264.99pt>
 File: Picture5.png Graphic file (type png)
 <use Picture5.png>
-Package pdftex.def Info: Picture5.png  used on input line 85.
+Package pdftex.def Info: Picture5.png  used on input line 102.
 (pdftex.def)             Requested size: 281.85587pt x 164.8056pt.
 
 
-[4
+[5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.94 
-     
+l.106 
+       <./Picture4.png>]
+
+[6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.94 
-      <./Picture4.png> <./Picture5.png>]
-
-[5] (propoasl.aux)
+l.121 \end{document}
+                     <./Picture5.png>] (propoasl.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `propoasl.out' has not changed.
-(rerunfilecheck)             Checksum: 2C4CA363BE632D2275DD579D88C63F70;622.
+(rerunfilecheck)             Checksum: 5536B57DCB65DBFCC7120ED805BAD7D9;818.
  ) 
 Here is how much of TeX's memory you used:
- 9824 strings out of 473523
- 151207 string characters out of 5714630
- 549626 words of memory out of 5000000
- 32923 multiletter control sequences out of 15000+600000
- 566431 words of font info for 66 fonts, out of 8000000 for 9000
+ 9842 strings out of 473523
+ 151451 string characters out of 5714630
+ 549659 words of memory out of 5000000
+ 32931 multiletter control sequences out of 15000+600000
+ 566906 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,877b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on propoasl.pdf (5 pages, 625163 bytes).
+ 75i,7n,79p,879b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on propoasl.pdf (6 pages, 647915 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
