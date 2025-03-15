@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{fullpage}
 \usepackage{amsmath,amssymb,graphicx,hyperref}
 \usepackage{float}
 
@@ -28,7 +29,7 @@ The research expands previous work by studying matrix multiplication mathematics
 \section{Literature Review}
 The search for enhanced matrix multiplication algorithms has proven challenging throughout many years in fields of mathematics and computer science. Research studies found ways to decrease the \( N^3 \) scalar multiplication requirement for matrix multiplication by exploiting mathematical structures in the algorithm.
 
-The foundation for improving matrix multiplication processes came from classical methods. The time complexity reached approximately \( O(N^{2.81...}) \) through Strassen's algorithm by converting two \( 2 \times 2 \) matrix multiplication into 7 recursive subproblems rather than 8. 
+The foundation for improving matrix multiplication processes came from classical methods. The time complexity reached approximately \( O(N^{2.81\ldots}) \) through Strassen's algorithm by converting two \( 2 \times 2 \) matrix multiplication into 7 recursive subproblems rather than 8. 
 Coppersmith-Winograd algorithm developed this methodology to achieve matrix multiplication complexity at\(  O(N^{2.376}) \). The state-of-the-art matrix multiplication algorithms currently reach an \( O(N^{2.37}) \) complexity level but actual practical applications tend to use Strassen's method as an economical alternative for medium-scale matrices.
 
 The process of understanding matrix multiplication uses tensor decomposition as an essential mathematical tool. The matrix multiplication operation can be understood as a rank-3 tensor but requires finding the most compact rank representation. The conversion to lower-rank expression requires fewer multiplication operations across scalars. The matrix multiplication tensor of size \( 2 \times 2 \times 2 \) finds its rank-7 decomposition through Strassen's algorithm. Through tensor decomposition researchers gain a unified perspective for both existing algorithm analysis and new algorithm discovery hence becoming an optimal method for optimisation research.
@@ -52,7 +53,7 @@ The present work adopts an AlphaZero framework to create a reinforcement learnin
     \label{fig:alphatensor-framework}
 \end{figure}
 
-The research will analyse discovered algorithm performance through evaluations with traditional algorithms that include the classical cubic algorithm and Strassen’s algorithm. The evaluation framework uses the count for scalar multiplication operations together with runtime performance measurements coupled with scaling abilities for bigger matrix sizes. A simplified transformer model will receive these discovered algorithms to determine their effect on the runtime of self-attention computations.
+The research will analyse discovered algorithm performance through evaluations with traditional algorithms that include the classical cubic algorithm and Strassen's algorithm. The evaluation framework uses the count for scalar multiplication operations together with runtime performance measurements coupled with scaling abilities for bigger matrix sizes. A simplified transformer model will receive these discovered algorithms to determine their effect on the runtime of self-attention computations.
 
 \begin{figure}[H]
     \centering
@@ -64,5 +65,35 @@ The research will analyse discovered algorithm performance through evaluations w
 The approach creates a systematic investigation of matrix multiplication algorithms through machine learning which extends human intuition capabilities beyond current boundaries.
 
 \section{Expected Results and Analysis}
+The main objective of this work examines how reinforcement learning techniques might find superior matrix multiplication methods. The anticipated RL agent derived from AlphaZero capabilities will discover known matrix algorithms including Strassen's algorithm and potentially create new algorithms with minimised scalar multiplication counts.
+
+At least three metrics will determine the performance evaluation of discovered algorithms compared against classical approaches including scalar multiplication counts as well as computational runtime duration and scalability capabilities. It is expected that the RL agent will achieve solutions at least equal to current algorithms when working with \( 2 \times 2 \) and \( 3 \times 3 \) matrix sizes. The optimisations show potential to decrease complexity when dealing with small to moderate matrix dimensions and may lead to extended scalability by implementing hierarchical decomposition approaches.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Picture4.png}
+    \caption{Comparison between the complexity of previous known matrix multiplication algorithms and the ones discovered by AlphaTensor. (Source: AlphaTensor paper)}
+    \label{fig:comparison-alphatensor}
+\end{figure}
+
+A performance assessment of the discovered algorithms will conduct through their integration into basic transformer models for practical measurement of runtime efficiency. The researchers want to evaluate training time reductions for image classification on MNIST and CIFAR-10 datasets by implementing new algorithms instead of conventional matrix multiplication in their models.
+
+Two main challenges exist regarding training RL agents for algorithm discovery which include high computational expense as well as stability issues for algorithms found specifically in larger matrix-based computations. The encountered obstacles offer research opportunities to develop combined strategies which unite learned algorithms with traditional methods for enhanced consistency and processing speed.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Picture5.png}
+    \caption{Algorithm discovery beyond standard matrix multiplication (Source: AlphaTensor paper)}
+    \label{fig:standard-matrix}
+\end{figure}
+
+This study aims to demonstrate the practicality of deploying machine learning for algorithm discovery because it results in improved performance of matrix-based deep learning operations.
+
+\section{Conclusion}
+This work seeks to explore whether reinforcement learning techniques can find accelerated matrix multiplication algorithms based on AlphaZero framework success stories in discovering algorithms. The project starts with thorough investigation of matrix multiplication theoretical groundwork then creates a reinforcement learning system which approaches algorithm discovery as a gameplay format. Both theoretical and practical evaluations will assess the performance of discovered algorithms with special focus on their implementation in self-attention layers of transformers.
+
+The successful execution of this project will yield new algorithms which minimise matrix product scalar multiplication requirements based on subsequent efficiency enhancements to speed-up machine learning model training. Smaller matrices will be the subject of first experiments, but the research aims to determine practical implementation potential of these discoveries for real-world systems.
+
+The research direction includes improving both the RL training procedure and hardware optimisation strategies while expanding the solution approach towards additional linear algebra calculations. This paper wants to offer both insights about matrix multiplication along with new methods for using machine learning in basic algorithm investigation.
 
 \end{document}
