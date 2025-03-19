@@ -1,0 +1,125 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{coppersmith1990matrix}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=05f2c191bf5eb813f78735a125494bc6}{%
+           family={Coppersmith},
+           familyi={C\bibinitperiod},
+           given={Don},
+           giveni={D\bibinitperiod}}}%
+        {{hash=26cf8727677d46abab72714c2385a119}{%
+           family={Winograd},
+           familyi={W\bibinitperiod},
+           given={Shmuel},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{fullhash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{fullhashraw}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{bibnamehash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{authorbibnamehash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{authornamehash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{authorfullhash}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \strng{authorfullhashraw}{cd42dd8cbc4b382dc01c14561fac5cb6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Symbolic Computation}
+      \field{number}{3}
+      \field{title}{Matrix multiplication via arithmetic progressions}
+      \field{volume}{9}
+      \field{year}{1990}
+      \field{pages}{251\bibrangedash 280}
+      \range{pages}{30}
+    \endentry
+    \entry{fawzi2022discovering}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=8d0a51ac9b8292a50431f9ee0b663937}{%
+           family={Fawzi},
+           familyi={F\bibinitperiod},
+           given={Alhussein},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{fullhash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{fullhashraw}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{bibnamehash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{authorbibnamehash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{authornamehash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{authorfullhash}{fceca49195478f2fdf72aefa68fb774f}
+      \strng{authorfullhashraw}{fceca49195478f2fdf72aefa68fb774f}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7930}
+      \field{title}{Discovering faster matrix multiplication algorithms with reinforcement learning}
+      \field{volume}{610}
+      \field{year}{2022}
+      \field{pages}{47\bibrangedash 53}
+      \range{pages}{7}
+    \endentry
+    \entry{strassen1969gaussian}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=7bca1a3f59886cbcc73817b5146b30c2}{%
+           family={Strassen},
+           familyi={S\bibinitperiod},
+           given={Volker},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{fullhash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{fullhashraw}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{bibnamehash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{authorbibnamehash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{authornamehash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{authorfullhash}{7bca1a3f59886cbcc73817b5146b30c2}
+      \strng{authorfullhashraw}{7bca1a3f59886cbcc73817b5146b30c2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Numerische Mathematik}
+      \field{number}{4}
+      \field{title}{Gaussian elimination is not optimal}
+      \field{volume}{13}
+      \field{year}{1969}
+      \field{pages}{354\bibrangedash 356}
+      \range{pages}{3}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
