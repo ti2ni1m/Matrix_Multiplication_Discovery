@@ -82,9 +82,16 @@ The study aims to determine how optimised matrix multiplication methods can be i
 I purpose to create an optimised line of matrix multiplication algorithms which will enhance computational efficiency and provide useful applications for machine learning particularly within reinforcement learning and transformer models. By using Python and Julia the project takes advantage of machine learning tools while gaining access to necessary computational power for processing large numerical data.
 
 \section{Expected Results and Analysis}
-The main objective of this work examines how reinforcement learning techniques might find superior matrix multiplication methods. The anticipated RL agent derived from AlphaZero capabilities will discover known matrix algorithms including Strassen's algorithm and potentially create new algorithms with minimised scalar multiplication counts.
+This project aims to explore the potential of reinforcement learning in discovering efficient matrix multiplication algorithms. Initially,the RL agent is expected to rediscover Strassen's algorithm and potentially uncover novel multiplication strategies that reduce the number of scalar multiplications compared to naive methods.  
 
-At least three metrics will determine the performance evaluation of discovered algorithms compared against classical approaches including scalar multiplication counts as well as computational runtime duration and scalability capabilities. It is expected that the RL agent will achieve solutions at least equal to current algorithms when working with \( 2 \times 2 \) and \( 3 \times 3 \) matrix sizes. The optimisations show potential to decrease complexity when dealing with small to moderate matrix dimensions and may lead to extended scalability by implementing hierarchical decomposition approaches.
+A key aspect of the evaluation will be benchmarking the discovered algorithms against classical techniques, focusing on Strassen's and Coppersmith-Winograd's methods. The primary performance metrics include:  
+
+\begin{itemize}
+    \item \textbf{Computational Complexity:} Measuring the reduction in multiplication steps compared to existing algorithms.
+    \item \textbf{Runtime Efficiency:} Analysing execution times when applied to standard matrix operations and deep learning workloads.
+    \item \textbf{Numerical Stability:} Ensuring the discovered algorithms maintain accuracy and do not introduce significant floating-point errors.
+    \item \textbf{Practical Applicability:} Integrating the algorithms into transformer self-attention computations to assess real-world impact.
+\end{itemize}
 
 \begin{figure}[H]
     \centering
@@ -93,9 +100,7 @@ At least three metrics will determine the performance evaluation of discovered a
     \label{fig:comparison-alphatensor}
 \end{figure}
 
-A performance assessment of the discovered algorithms will conduct through their integration into basic transformer models for practical measurement of runtime efficiency. The researchers want to evaluate training time reductions for image classification on MNIST and CIFAR-10 datasets by implementing new algorithms instead of conventional matrix multiplication in their models.
-
-Two main challenges exist regarding training RL agents for algorithm discovery which include high computational expense as well as stability issues for algorithms found specifically in larger matrix-based computations. The encountered obstacles offer research opportunities to develop combined strategies which unite learned algorithms with traditional methods for enhanced consistency and processing speed.
+One expected challenge is ensuring that the RL model generalises beyond small matrices while maintaining stability. If the discovered algorithms perform well for moderate-sized matrices, further investigations could explore their scalability and potential hardware optimisations. The outcomes of this study will provide insights into whether reinforcement learning is a viable approach for discovering new, efficient linear algebra algorithms.
 
 \begin{figure}[H]
     \centering
