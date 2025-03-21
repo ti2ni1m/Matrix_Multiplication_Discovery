@@ -19,6 +19,55 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{cohn2005group}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=8420f1b740d312727ce7e835fb95955f}{%
+           family={Cohn},
+           familyi={C\bibinitperiod},
+           given={Henry},
+           giveni={H\bibinitperiod}}}%
+        {{hash=2166da52c267a8b58d8f73cb939e68b3}{%
+           family={Kleinberg},
+           familyi={K\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=067dab294b3126701daab12e05fc2e58}{%
+           family={Szegedy},
+           familyi={S\bibinitperiod},
+           given={Balázs},
+           giveni={B\bibinitperiod}}}%
+        {{hash=950d86e74cd4c48b9b9edb4057d2c9c8}{%
+           family={Umans},
+           familyi={U\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{22672b39d356c1d353339553743244d4}
+      \strng{fullhash}{2509d0e15eb1ce6e978c61bd86e12d0d}
+      \strng{fullhashraw}{2509d0e15eb1ce6e978c61bd86e12d0d}
+      \strng{bibnamehash}{22672b39d356c1d353339553743244d4}
+      \strng{authorbibnamehash}{22672b39d356c1d353339553743244d4}
+      \strng{authornamehash}{22672b39d356c1d353339553743244d4}
+      \strng{authorfullhash}{2509d0e15eb1ce6e978c61bd86e12d0d}
+      \strng{authorfullhashraw}{2509d0e15eb1ce6e978c61bd86e12d0d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.GR}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Proceedings of the 46th Annual IEEE Symposium on Foundations of Computer Science (FOCS)}
+      \field{title}{Group-theoretic algorithms for matrix multiplication}
+      \field{year}{2005}
+      \field{pages}{379\bibrangedash 388}
+      \range{pages}{10}
+      \verb{eprint}
+      \verb math/0511460
+      \endverb
+    \endentry
     \entry{coppersmith1990matrix}{article}{}{}
       \name{author}{2}{}{%
         {{hash=05f2c191bf5eb813f78735a125494bc6}{%

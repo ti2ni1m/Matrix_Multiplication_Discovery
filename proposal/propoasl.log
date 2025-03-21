@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.13)  19 MAR 2025 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.13)  22 MAR 2025 10:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -531,7 +531,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Picture1.png, id=34, 453.19313pt x 167.12437pt>
+<Picture1.png, id=46, 453.19313pt x 167.12437pt>
 File: Picture1.png Graphic file (type png)
 <use Picture1.png>
 Package pdftex.def Info: Picture1.png  used on input line 26.
@@ -546,43 +546,43 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has
                                                   \__shipout_drop_firstpage_...
 l.33 
       <./Picture1.png>]
-<Picture2.png, id=56, 453.19313pt x 259.7203pt>
+<Picture2.png, id=70, 453.19313pt x 259.7203pt>
 File: Picture2.png Graphic file (type png)
 <use Picture2.png>
-Package pdftex.def Info: Picture2.png  used on input line 49.
+Package pdftex.def Info: Picture2.png  used on input line 51.
 (pdftex.def)             Requested size: 281.85587pt x 161.52821pt.
-<Picture3.png, id=57, 453.19313pt x 219.82124pt>
-File: Picture3.png Graphic file (type png)
-<use Picture3.png>
-Package pdftex.def Info: Picture3.png  used on input line 60.
-(pdftex.def)             Requested size: 281.85587pt x 136.71373pt.
 
 
 [2
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.63 \end{figure}
-                  <./Picture2.png>]
+l.57 \subsection
+                {- Computational Complexity: Measuring the number of scalar ... <./Picture2.png>]
+<Picture3.png, id=80, 453.19313pt x 219.82124pt>
+File: Picture3.png Graphic file (type png)
+<use Picture3.png>
+Package pdftex.def Info: Picture3.png  used on input line 62.
+(pdftex.def)             Requested size: 281.85587pt x 136.71373pt.
+
 
 [3
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.78 
+l.77 
       <./Picture3.png>]
-<Picture4.png, id=73, 453.19313pt x 292.09125pt>
-File: Picture4.png Graphic file (type png)
-<use Picture4.png>
-Package pdftex.def Info: Picture4.png  used on input line 98.
-(pdftex.def)             Requested size: 281.85587pt x 181.66072pt.
-
 
 [4]
-<Picture5.png, id=82, 453.19313pt x 264.99pt>
+<Picture4.png, id=96, 453.19313pt x 292.09125pt>
+File: Picture4.png Graphic file (type png)
+<use Picture4.png>
+Package pdftex.def Info: Picture4.png  used on input line 100.
+(pdftex.def)             Requested size: 281.85587pt x 181.66072pt.
+<Picture5.png, id=97, 453.19313pt x 264.99pt>
 File: Picture5.png Graphic file (type png)
 <use Picture5.png>
-Package pdftex.def Info: Picture5.png  used on input line 107.
+Package pdftex.def Info: Picture5.png  used on input line 109.
 (pdftex.def)             Requested size: 281.85587pt x 164.8056pt.
 
 
@@ -590,14 +590,14 @@ Package pdftex.def Info: Picture5.png  used on input line 107.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.116 
+l.118 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.116 
+l.118 
        <./Picture4.png> <./Picture5.png>]
-Overfull \hbox (0.5652pt too wide) in paragraph at lines 123--123
+Overfull \hbox (0.5652pt too wide) in paragraph at lines 125--125
 []\OT1/cmr/m/n/10 Volker Strassen. ``Gaus-sian elim-i-na-tion is not op-ti-mal''. In: \OT1/cmr/m/it/10 Nu-merische Math-e-matik \OT1/cmr/m/n/10 13.4 (1969), pp. 354{
  []
 
@@ -609,23 +609,23 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `propoasl.out' has not changed.
-(rerunfilecheck)             Checksum: 5536B57DCB65DBFCC7120ED805BAD7D9;818.
+(rerunfilecheck)             Checksum: F63ADDE374C9FAF9C53203306D9DD14E;2513.
 Package logreq Info: Writing requests to 'propoasl.run.xml'.
 \openout1 = `propoasl.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17156 strings out of 473523
- 300232 string characters out of 5714630
- 1117252 words of memory out of 5000000
- 40187 multiletter control sequences out of 15000+600000
- 567381 words of font info for 69 fonts, out of 8000000 for 9000
+ 17169 strings out of 473523
+ 300515 string characters out of 5714630
+ 1118318 words of memory out of 5000000
+ 40195 multiletter control sequences out of 15000+600000
+ 567549 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,81p,888b,1221s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\manan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on propoasl.pdf (6 pages, 653565 bytes).
+ 75i,7n,81p,950b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\manan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on propoasl.pdf (6 pages, 673729 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
