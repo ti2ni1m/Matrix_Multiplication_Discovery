@@ -7,8 +7,6 @@ INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
-INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\preprint\fullpage.sty
-INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\preprint\fullpage.sty
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsmath.sty
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\amsmath\amsopn.sty
@@ -134,6 +132,8 @@ INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-e
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-expl3.sty
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\preprint\fullpage.sty
+INPUT C:\Users\manan\AppData\Local\Programs\MiKTeX\tex\latex\preprint\fullpage.sty
 INPUT .\propoasl.aux
 INPUT .\propoasl.aux
 INPUT propoasl.aux

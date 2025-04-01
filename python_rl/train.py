@@ -9,6 +9,6 @@ discovered = {
     ]
 }
 
-with open("discovered.json", "w") as f:
+with open("C:/Users/manan/OneDrive/Desktop/University/Year 4/Discovery Project/project-ti2ni1m/python_rl/discovered.json", "w") as f:
     json.dump(discovered, f)
 print("Reinforcement-Learning discovered algorithms saved.")

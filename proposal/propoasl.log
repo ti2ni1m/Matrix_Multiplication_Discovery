@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.3.13)  22 MAR 2025 10:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.1)  1 APR 2025 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -23,12 +23,9 @@ File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
-) (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/preprint\fullpage.sty
-Package: fullpage 1999/02/23 1.1 (PWD)
-\FP@margin=\skip51
 ) (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
-\@mathmargin=\skip52
+\@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -85,8 +82,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \totwidth@=\dimen149
 \lineht@=\dimen150
 \@envbody=\toks20
-\multlinegap=\skip53
-\multlinetaggap=\skip54
+\multlinegap=\skip52
+\multlinetaggap=\skip53
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
@@ -224,7 +221,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip55
+\Hy@SectionHShift=\skip54
 ) (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count294
@@ -285,14 +282,14 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 \blx@sectionciteorderinternal@0=\count336
 \blx@entrysetcounter=\count337
 \blx@biblioinstance=\count338
-\labelnumberwidth=\skip56
-\labelalphawidth=\skip57
-\biblabelsep=\skip58
-\bibitemsep=\skip59
-\bibnamesep=\skip60
-\bibinitsep=\skip61
-\bibparsep=\skip62
-\bibhang=\skip63
+\labelnumberwidth=\skip55
+\labelalphawidth=\skip56
+\biblabelsep=\skip57
+\bibitemsep=\skip58
+\bibnamesep=\skip59
+\bibinitsep=\skip60
+\bibparsep=\skip61
+\bibhang=\skip62
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language79
@@ -374,20 +371,20 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedoriglanguage=\count407
 \c@pageref=\count408
 \c@savedpageref=\count409
-\shorthandwidth=\skip64
-\shortjournalwidth=\skip65
-\shortserieswidth=\skip66
-\shorttitlewidth=\skip67
-\shortauthorwidth=\skip68
-\shorteditorwidth=\skip69
-\locallabelnumberwidth=\skip70
-\locallabelalphawidth=\skip71
-\localshorthandwidth=\skip72
-\localshortjournalwidth=\skip73
-\localshortserieswidth=\skip74
-\localshorttitlewidth=\skip75
-\localshortauthorwidth=\skip76
-\localshorteditorwidth=\skip77
+\shorthandwidth=\skip63
+\shortjournalwidth=\skip64
+\shortserieswidth=\skip65
+\shorttitlewidth=\skip66
+\shortauthorwidth=\skip67
+\shorteditorwidth=\skip68
+\locallabelnumberwidth=\skip69
+\locallabelalphawidth=\skip70
+\localshorthandwidth=\skip71
+\localshortjournalwidth=\skip72
+\localshortserieswidth=\skip73
+\localshorttitlewidth=\skip74
+\localshortauthorwidth=\skip75
+\localshorteditorwidth=\skip76
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
@@ -460,30 +457,33 @@ Package biblatex Info: ... and expl3
 Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
-))
+)) (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/preprint\fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip77
+)
 \@quotelevel=\count422
 \@quotereset=\count423
  (propoasl.aux)
 \openout1 = `propoasl.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count424
@@ -503,7 +503,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 12.
+Package hyperref Info: Link coloring OFF on input line 13.
  (propoasl.out) (propoasl.out)
 \@outlinefile=\write4
 \openout4 = `propoasl.out'.
@@ -521,20 +521,20 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'propoasl.bbl' found.
  (propoasl.bbl)
-Package biblatex Info: Reference section=0 on input line 12.
-Package biblatex Info: Reference segment=0 on input line 12.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+Package biblatex Info: Reference section=0 on input line 13.
+Package biblatex Info: Reference segment=0 on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
  (C:\Users\manan\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 <Picture1.png, id=46, 453.19313pt x 167.12437pt>
 File: Picture1.png Graphic file (type png)
 <use Picture1.png>
-Package pdftex.def Info: Picture1.png  used on input line 26.
+Package pdftex.def Info: Picture1.png  used on input line 27.
 (pdftex.def)             Requested size: 281.85587pt x 103.93988pt.
 
 
@@ -544,12 +544,12 @@ Package pdftex.def Info: Picture1.png  used on input line 26.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.33 
+l.34 
       <./Picture1.png>]
 <Picture2.png, id=70, 453.19313pt x 259.7203pt>
 File: Picture2.png Graphic file (type png)
 <use Picture2.png>
-Package pdftex.def Info: Picture2.png  used on input line 51.
+Package pdftex.def Info: Picture2.png  used on input line 52.
 (pdftex.def)             Requested size: 281.85587pt x 161.52821pt.
 
 
@@ -557,12 +557,12 @@ Package pdftex.def Info: Picture2.png  used on input line 51.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.57 \subsection
+l.58 \subsection
                 {- Computational Complexity: Measuring the number of scalar ... <./Picture2.png>]
 <Picture3.png, id=80, 453.19313pt x 219.82124pt>
 File: Picture3.png Graphic file (type png)
 <use Picture3.png>
-Package pdftex.def Info: Picture3.png  used on input line 62.
+Package pdftex.def Info: Picture3.png  used on input line 63.
 (pdftex.def)             Requested size: 281.85587pt x 136.71373pt.
 
 
@@ -570,19 +570,19 @@ Package pdftex.def Info: Picture3.png  used on input line 62.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.77 
+l.78 
       <./Picture3.png>]
 
 [4]
 <Picture4.png, id=96, 453.19313pt x 292.09125pt>
 File: Picture4.png Graphic file (type png)
 <use Picture4.png>
-Package pdftex.def Info: Picture4.png  used on input line 100.
+Package pdftex.def Info: Picture4.png  used on input line 101.
 (pdftex.def)             Requested size: 281.85587pt x 181.66072pt.
 <Picture5.png, id=97, 453.19313pt x 264.99pt>
 File: Picture5.png Graphic file (type png)
 <use Picture5.png>
-Package pdftex.def Info: Picture5.png  used on input line 109.
+Package pdftex.def Info: Picture5.png  used on input line 110.
 (pdftex.def)             Requested size: 281.85587pt x 164.8056pt.
 
 
@@ -590,14 +590,14 @@ Package pdftex.def Info: Picture5.png  used on input line 109.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.118 
+l.119 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.118 
+l.119 
        <./Picture4.png> <./Picture5.png>]
-Overfull \hbox (0.5652pt too wide) in paragraph at lines 125--125
+Overfull \hbox (0.5652pt too wide) in paragraph at lines 126--126
 []\OT1/cmr/m/n/10 Volker Strassen. ``Gaus-sian elim-i-na-tion is not op-ti-mal''. In: \OT1/cmr/m/it/10 Nu-merische Math-e-matik \OT1/cmr/m/n/10 13.4 (1969), pp. 354{
  []
 
@@ -616,14 +616,14 @@ Package logreq Info: Writing requests to 'propoasl.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  17169 strings out of 473523
- 300515 string characters out of 5714630
- 1118318 words of memory out of 5000000
+ 300515 string characters out of 5714631
+ 1118330 words of memory out of 5000000
  40195 multiletter control sequences out of 15000+600000
  567549 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,81p,950b,1295s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\manan\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/manan/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on propoasl.pdf (6 pages, 673729 bytes).
+Output written on propoasl.pdf (6 pages, 674127 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  31 named destinations out of 1000 (max. 500000)
