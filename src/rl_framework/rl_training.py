@@ -1,7 +1,9 @@
 import os
 import numpy as np
 import pickle
-from matrix_rl_env import MatrixRLEnvironment  # Assuming matrix_rl_env.py is properly defined
+import torch
+import torch.nn as nn
+from matrix_rl_env import MatrixMultiplicationEnv
 from rl_agent import RLAgent  # Assuming rl_agent.py is properly defined
 from mcts import MCTS  # Assuming mcts.py is properly defined
 
@@ -27,8 +29,24 @@ class RLTraining:
                 # Use MCTS to determine the best action for the agent
                 action = self.mcts.search(state)
 
+                print(f"Action received: {action} (Type: {type(action)})")
+
+                # Check if action is a numpy array or tensor
+                if isinstance(action, np.ndarray):
+                    action = action.item()  # Convert to scalar if only one element
+
+                elif isinstance(action, torch.Tensor):
+                    action = action.item()  # Convert tensor to scalar
+                
+                print(f"Processed Action: {action} (Type: {type(action)})")
+
                 # Take the action and observe the result
-                next_state, reward, done, _ = self.env.step(action)
+                try:
+                    next_state, reward, done, _ = self.env.step(action)
+                except ValueError as e:
+                    print(f"Error during environment step: {e}")
+                    break
+                
                 total_reward += reward
 
                 # Use the agent to learn from the environment (e.g., update Q-values or policy)
@@ -63,9 +81,10 @@ class RLTraining:
 
 if __name__ == "__main__":
     # Initialize the environment, agent, and MCTS
-    env = MatrixRLEnvironment()  # Replace with the actual environment initialization
-    agent = RLAgent()  # Replace with the actual agent initialization
-    mcts = MCTS(env)  # Replace with the actual MCTS initialization
+    env = MatrixMultiplicationEnv()  # Replace with the actual environment initialization
+    agent = RLAgent(env)  # Replace with the actual agent initialization
+    policy_net = agent.policy_net  # Get the policy network from the agent (this will be passed to MCTS)
+    mcts = MCTS(env, policy_net)  # Replace with the actual MCTS initialization
 
     # Initialize the training loop
     training = RLTraining(env, agent, mcts)

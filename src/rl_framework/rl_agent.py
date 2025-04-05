@@ -46,8 +46,9 @@ class RLAgent:
         Train the RL agent using policy gradient updates.
         """
         for episode in range(episodes):
-            state = self.env.reset().flatten()  # Flatten matrix for input
-            action = self.select_action(state)
+            state_dict = self.env.reset()
+            state = state_dict["matrix_a"].flatten()
+            action = self.select_action(state_dict)
             _, reward, _, _ = self.env.step(action)
 
             # Convert state to tensor

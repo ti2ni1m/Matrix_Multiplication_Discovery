@@ -8,6 +8,8 @@ class Node:
     Represents a node in the MCTS search tree.
     """
     def __init__(self, state, parent=None, action=None):
+        if state is None:
+            raise ValueError("Node initialized with None state")
         self.state = state  # State of the environment
         self.parent = parent  # Parent node
         self.action = action  # Action taken to reach this state
@@ -91,25 +93,27 @@ class MCTS:
         Performs MCTS and returns a probability distribution over actions.
         """
         root = Node(state=state)
+        if root is None:
+            raise ValueError("Root node is None. Check initial state format.")
+        
         for _ in range(self.simulations):
-            # Selection: traverse down the tree
             node = root
-            while node.is_fully_expanded():
-                node = node.best_child(exploration_weight=1.0)
+            # Selection
+            while node.is_fully_expanded() and node.children:
+                node = node.best_child()
 
-            # Expansion: add children if not fully expanded
+            # Expansion
             if not node.is_fully_expanded():
                 self.expand(node)
 
-            # Simulation: roll out a random trajectory
+            # Simulation
             reward = self.simulate(node)
 
-            # Backpropagation: update the values of nodes
+            # Backpropagation
             self.backpropagate(node, reward)
 
-        # Return the probabilities of the best action from the root
         visit_counts = np.array([child.visit_count for child in root.children])
-        probabilities = visit_counts / visit_counts.sum()
+        probabilities = visit_counts / visit_counts.sum() 
         return probabilities
 
 if __name__ == "__main__":
@@ -118,5 +122,6 @@ if __name__ == "__main__":
     policy_net = None  # Replace with actual policy network
     mcts = MCTS(env, policy_net)
     initial_state = env.reset()  # Example state, need to match the env's state
+    print("Initial state:", initial_state)
     probabilities = mcts.search(initial_state)
-    print(probabilities)
+    print("Probabilities:", probabilities)
