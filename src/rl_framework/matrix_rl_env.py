@@ -3,6 +3,9 @@ import gym
 from gym import spaces
 import torch
 import torch.nn as nn
+from src.algorithms.standard import standard_multiplication
+from src.algorithms.strassen import strassen_multiplication
+from src.algorithms.coppersmith import coppersmith_winograd
 
 class MatrixMultiplicationEnv(gym.Env):
     """
@@ -94,13 +97,13 @@ class MatrixMultiplicationEnv(gym.Env):
             print(f"Result:\n{self.current_result}")
 
     def standard_multiplication(self):
-        return np.dot(self.matrix_a, self.matrix_b)
+        return standard_multiplication(self.matrix_a, self.matrix_b)
 
     def strassen_multiplication(self):
-        return self.standard_multiplication()  # Placeholder
+        return strassen_multiplication(self.matrix_a, self.matrix_b)
 
     def coppersmith_winograd_multiplication(self):
-        return self.standard_multiplication()  # Placeholder
+        return coppersmith_winograd(self.matrix_a, self.matrix_b)
 
     def compute_cost(self, action):
         n = self.matrix_size[0]

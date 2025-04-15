@@ -32,10 +32,9 @@ class RLTraining:
                 print(f"Action received: {action} (Type: {type(action)})")
 
                 # Check if action is a numpy array or tensor
-                if isinstance(action, np.ndarray):
-                    action = action.item()  # Convert to scalar if only one element
+                action = int(action)  # Convert to scalar if only one element
 
-                elif isinstance(action, torch.Tensor):
+                if isinstance(action, torch.Tensor):
                     action = action.item()  # Convert tensor to scalar
                 
                 print(f"Processed Action: {action} (Type: {type(action)})")
@@ -50,7 +49,7 @@ class RLTraining:
                 total_reward += reward
 
                 # Use the agent to learn from the environment (e.g., update Q-values or policy)
-                self.agent.learn(state, action, reward, next_state, done)
+                self.agent.learn(state["matrix_a"].flatten(), action, reward)
 
                 # Move to the next state
                 state = next_state
@@ -68,9 +67,8 @@ class RLTraining:
 
     def save_model(self, episode):
         # Save the agent's model (e.g., Q-values, policy network, etc.)
-        model_filename = os.path.join(self.model_dir, f"model_episode_{episode}.pkl")
-        with open(model_filename, 'wb') as model_file:
-            pickle.dump(self.agent, model_file)
+        model_path = os.path.join(self.model_dir, f"policy_net_episode_{episode}.pth")
+        self.agent.save_model(model_path)
         print(f"Model saved after episode {episode}.")
 
     def load_model(self, filename):

@@ -45,3 +45,10 @@ def strassen_multiplication(A: np.ndarray, B: np.ndarray) -> np.ndarray:
     C[mid:, :mid], C[mid:, mid:] = C21, C22
 
     return C
+
+#Test
+if __name__ == "__main__":
+    A = np.random.randint(0, 10, (4, 4))
+    B = np.random.randint(0, 10, (4, 4))
+    C = strassen_multiplication(A, B)
+    print("Strassen Result:\n", C)

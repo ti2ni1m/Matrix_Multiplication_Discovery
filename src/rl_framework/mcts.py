@@ -73,11 +73,14 @@ class MCTS:
         """
         Expands the node by adding a new child node for each available action.
         """
+        tried_actions = [child.action for child in node.children]
         available_actions = node.state['available_actions']
         for action in available_actions:
-            next_state, _, _, _ = self.env.step(action)
-            child_node = Node(state=next_state, parent=node, action=action)
-            node.children.append(child_node)
+            if action not in tried_actions:
+                next_state, _, _, _ = self.env.step(action)
+                child_node = Node(state=next_state, parent=node, action=action)
+                node.children.append(child_node)
+                break #Expand one child at a time
 
     def backpropagate(self, node, reward):
         """
