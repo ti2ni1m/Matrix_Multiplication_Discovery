@@ -26,18 +26,16 @@ class RLTraining:
             total_reward = 0
 
             for t in range(self.max_timesteps):
-                # Use MCTS to determine the best action for the agent
-                action = self.mcts.search(state)
+                # Use MCTS to determine the probability distribution over actions
+                action_probabilities = self.mcts.search(state)
+
+                print(f"Action Probabilities: {action_probabilities} (Type: {type(action_probabilities)})")
+
+                # Sample an action from the probability distribution
+                action = np.random.choice(len(action_probabilities), p=action_probabilities)
+                action = int(action) # Convert the sampled index to an integer
 
                 print(f"Action received: {action} (Type: {type(action)})")
-
-                # Check if action is a numpy array or tensor
-                action = int(action)  # Convert to scalar if only one element
-
-                if isinstance(action, torch.Tensor):
-                    action = action.item()  # Convert tensor to scalar
-                
-                print(f"Processed Action: {action} (Type: {type(action)})")
 
                 # Take the action and observe the result
                 try:
@@ -45,10 +43,10 @@ class RLTraining:
                 except ValueError as e:
                     print(f"Error during environment step: {e}")
                     break
-                
+
                 total_reward += reward
 
-                # Use the agent to learn from the environment (e.g., update Q-values or policy)
+                # Use the agent to learn from the environment
                 self.agent.learn(state["matrix_a"].flatten(), action, reward)
 
                 # Move to the next state
@@ -59,7 +57,7 @@ class RLTraining:
 
             print(f"Episode {episode + 1}/{self.num_episodes} finished with total reward: {total_reward}")
 
-            # Save the model periodically (every 100 episodes in this case)
+            # Save the model periodically
             if (episode + 1) % 100 == 0:
                 self.save_model(episode + 1)
 

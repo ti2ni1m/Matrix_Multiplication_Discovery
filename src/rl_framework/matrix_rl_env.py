@@ -3,6 +3,10 @@ import gym
 from gym import spaces
 import torch
 import torch.nn as nn
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 from src.algorithms.standard import standard_multiplication
 from src.algorithms.strassen import strassen_multiplication
 from src.algorithms.coppersmith import coppersmith_winograd

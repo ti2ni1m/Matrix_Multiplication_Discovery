@@ -3,10 +3,16 @@
 import time
 import csv
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Try 'Agg' first
 import matplotlib.pyplot as plt
-from algorithms.standard import standard_multiplication
-from algorithms.strassen import strassen_multiplication
-from algorithms.rl_discovered_algorithm import rl_multiplication  # Update as needed
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+from src.algorithms.standard import standard_multiplication
+from src.algorithms.strassen import strassen_multiplication
+from src.algorithms.rl_discovered_algorithm import rl_discovered_algorithm
 
 def benchmark(algorithm_fn, A, B):
     start = time.time()
@@ -18,7 +24,7 @@ def evaluate_algorithms(sizes=[64, 128, 256], save_csv=True, plot=True):
     algorithms = {
         "Standard": standard_multiplication,
         "Strassen": strassen_multiplication,
-        "RL_Discovered": rl_multiplication
+        "RL_Discovered": rl_discovered_algorithm
     }
 
     results = []
