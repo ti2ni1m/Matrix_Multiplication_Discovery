@@ -26,18 +26,22 @@ class RLAgent:
     """
     def __init__(self, env, learning_rate=0.001):
         self.env = env
-        input_size = env.matrix_size[0] * env.matrix_size[1]  # Flattened matrix size
+        input_size = 2 * env.matrix_size[0] * env.matrix_size[1]  # Flattened matrix size
         output_size = env.action_space.n  # Number of multiplication strategies
 
         self.policy_net = PolicyNetwork(input_size, output_size)
         self.optimizer = optim.Adam(self.policy_net.parameters(), lr=learning_rate)
         self.mcts = MCTS(self.env, self.policy_net)
 
-    def select_action(self, state):
+    def select_action(self, state_info):
         """
         Select an action using Monte Carlo Tree Search.
+        Args:
+            state_info: A tuple containing the flattened state and the info dictionary
+                        as returned by the environment's reset() and step() methods.
         """
-        probabilities = self.mcts.search(state)    
+        state, info = state_info
+        probabilities = self.mcts.search(state_info)
         probabilities = np.asarray(probabilities).flatten()
         action = int(np.random.choice(len(probabilities), p=probabilities))
         return action
@@ -63,14 +67,15 @@ class RLAgent:
         """
         total_reward = 0
         for _ in range(episodes):
-            state_dict = self.env.reset()
+            state, info = self.env.reset() # Unpack the tuple
             done = False
             episode_reward = 0
             while not done:
-                state = state_dict["matrix_a"].flatten()
-                action = self.select_action(state_dict)
-                state_dict, reward, done, _ = self.env.step(action)
+                action = self.select_action((state, info)) # Pass the full state tuple
+                next_state, reward, done, next_info = self.env.step(action)
                 episode_reward += reward
+                state = next_state
+                info = next_info
             total_reward += episode_reward
         avg_reward = total_reward / episodes
         print(f"Average reward over {episodes} episodes: {avg_reward:.2f}")
@@ -81,16 +86,16 @@ class RLAgent:
         Train the RL agent using policy gradient updates.
         """
         for episode in range(episodes):
-            state_dict = self.env.reset()
+            state, info = self.env.reset()
             trajectory = []
             done = False
 
             while not done:
-                state = state_dict["matrix_a"].flatten()
-                action = self.select_action(state_dict)
-                next_state_dict, reward, done, _ = self.env.step(action)
+                action = self.select_action((state, info)) # Pass the full state tuple
+                next_state, reward, done, next_info = self.env.step(action)
                 trajectory.append((state, action, reward))
-                state_dict = next_state_dict
+                state = next_state
+                info = next_info
 
             # Compute discounted rewards
             G = 0

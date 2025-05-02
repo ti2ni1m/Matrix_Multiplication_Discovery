@@ -21,7 +21,7 @@ class MatrixMultiplicationEnv(gym.Env):
 
         self.matrix_size = matrix_size
         self.action_space = spaces.Discrete(3)  # 0 = Standard, 1 = Strassen, 2 = Coppersmith-Winograd
-        self.observation_space = spaces.Box(low=-100, high=100, shape=(matrix_size[0], matrix_size[1]), dtype=np.float32)
+        self.observation_space = spaces.Box(low=-100, high=100, shape=(2 * matrix_size[0] * matrix_size[1],), dtype=np.float32)
 
         self.matrix_a = None
         self.matrix_b = None
@@ -61,38 +61,40 @@ class MatrixMultiplicationEnv(gym.Env):
         done = True  # One-shot episode
         self.action_history.append(action)
 
-        next_state = {
-            "matrix_a": self.matrix_a,
-            "matrix_b": self.matrix_b,
-            "available_actions": [],
-            "action_history": self.action_history.copy(),
-        }
+        next_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
 
         return next_state, reward, done, {}
 
-    def reset(self, state=None):
+    def reset(self, seed=None, options=None, state=None):
         """
         Reset the environment state for a new episode.
-        If a state is provided, restore from it.
+        If a state dictionary is provided, restore from it.
         """
+        super().reset(seed=seed)
         if state is not None:
-            self.matrix_a = np.random.randint(-10, 10, self.matrix_size)
-            self.matrix_b = np.random.randint(-10, 10, self.matrix_size)
-            self.current_result = None
+            self.matrix_a = state.get("matrix_a")
+            self.matrix_b = state.get("matrix_b")
             self.action_history = state.get("action_history", [])
-
+            initial_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
+            info = {
+                "available_actions": [0, 1, 2],
+                "action_history": self.action_history
+            }
+            return initial_state, info
         else:
-            self.matrix_a = np.random.randint(-10, 10, self.matrix_size)
-            self.matrix_b = np.random.randint(-10, 10, self.matrix_size)
+            low = -10
+            high = 10
+            self.matrix_a = self.np_random.integers(low, high, size=self.matrix_size).astype(np.float32)
+            self.matrix_b = self.np_random.integers(low, high, size=self.matrix_size).astype(np.float32)
             self.current_result = None
             self.action_history = []
-
-        return {
-        "matrix_a": self.matrix_a,
-        "matrix_b": self.matrix_b,
-        "available_actions": [0, 1, 2],
-        "action_history": self.action_history
-    }
+            initial_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
+            info = {
+                "available_actions": [0, 1, 2],
+                "action_history": self.action_history
+            }
+            return initial_state, info
+    
 
     def render(self, mode="human"):
         print(f"Matrix A:\n{self.matrix_a}")

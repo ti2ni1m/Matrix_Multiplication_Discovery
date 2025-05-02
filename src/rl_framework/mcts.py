@@ -10,7 +10,7 @@ class Node:
     def __init__(self, state, parent=None, action=None):
         if state is None:
             raise ValueError("Node initialized with None state")
-        self.state = state  # State of the environment
+        self.state = state  # State of the environment (now a tuple)
         self.parent = parent  # Parent node
         self.action = action  # Action taken to reach this state
         self.children = []  # Child nodes
@@ -18,15 +18,20 @@ class Node:
         self.value = 0  # Total value (reward) accumulated from this node
 
     def is_fully_expanded(self):
-        # Check if available_actions is an attribute of state
-        if hasattr(self.state, 'available_actions'):
-            return len(self.children) == len(self.state.available_actions)
-        # If state is not dictionary-like, handle other structures
-        elif isinstance(self.state, dict) and 'available_actions' in self.state:
-            return len(self.children) == len(self.state['available_actions'])
+        """
+        Checks if the node is fully expanded.
+        The state is now a tuple: (flattened_array, info_dict).
+        Available actions are in the info_dict.
+        """
+        if isinstance(self.state, tuple) and len(self.state) == 2:
+            info = self.state[1]
+            if 'available_actions' in info:
+                return len(self.children) == len(info['available_actions'])
+            else:
+                raise ValueError("State info dictionary missing 'available_actions'")
         else:
-            raise ValueError("Unsupported state structure")
-    
+            raise ValueError("Unsupported state structure (expected a tuple)")
+
     def best_child(self, exploration_weight=1.):
         """
         Returns the child with the best value (with exploration-exploitation balance).
@@ -56,31 +61,58 @@ class MCTS:
         """
         Simulates a game from the current node to get an estimate of its value.
         """
-        state = self.env.reset(state=node.state)
+        # Get the flattened state (NumPy array) from the node
+        if isinstance(node.state, tuple) and len(node.state) == 2:
+            current_state_flat = node.state[0]
+            info = node.state[1]
+        else:
+            raise ValueError("Unsupported state structure in simulate (expected a tuple)")
+
+        n = self.env.matrix_size[0]
+        matrix_a = current_state_flat[:n*n].reshape(self.env.matrix_size)
+        matrix_b = current_state_flat[n*n:].reshape(self.env.matrix_size)
+
+        # Temporarily set the environment's state for the simulation
+        temp_env = MatrixMultiplicationEnv(matrix_size=self.env.matrix_size)
+        temp_env.matrix_a = matrix_a.copy()
+        temp_env.matrix_b = matrix_b.copy()
+        temp_env.action_history = list(info.get('action_history', []))
+
         total_reward = 0
         done = False
 
-        # Perform a random rollout to simulate and get the reward.
-        while not done:
-            action = random.choice(state['available_actions'])
-            next_state, reward, done, _ = self.env.step(action)
+        # Perform a few random rollouts
+        for _ in range(5):
+            if done:
+                break
+            action = temp_env.action_space.sample()
+            next_state, reward, done, _ = temp_env.step(action)
             total_reward += reward
-            state = next_state
 
         return total_reward
 
     def expand(self, node):
         """
         Expands the node by adding a new child node for each available action.
+        The state is now a tuple: (flattened_array, info_dict).
+        Available actions are in the info_dict.
         """
         tried_actions = [child.action for child in node.children]
-        available_actions = node.state['available_actions']
-        for action in available_actions:
-            if action not in tried_actions:
-                next_state, _, _, _ = self.env.step(action)
-                child_node = Node(state=next_state, parent=node, action=action)
-                node.children.append(child_node)
-                break #Expand one child at a time
+        if isinstance(node.state, tuple) and len(node.state) == 2:
+            info = node.state[1]
+            if 'available_actions' in info:
+                available_actions = info['available_actions']
+                for action in available_actions:
+                    if action not in tried_actions:
+                        next_state_flat, reward, _, _ = self.env.step(action)
+                        next_info = {'available_actions': list(range(self.env.action_space.n)), 'action_history': info.get('action_history', []) + [action]}
+                        child_node = Node(state=(next_state_flat, next_info), parent=node, action=action)
+                        node.children.append(child_node)
+                        break # Expand one child at a time
+            else:
+                raise ValueError("State info dictionary missing 'available_actions'")
+        else:
+            raise ValueError("Unsupported state structure (expected a tuple)")
 
     def backpropagate(self, node, reward):
         """
