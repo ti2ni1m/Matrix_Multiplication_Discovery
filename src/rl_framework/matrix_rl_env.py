@@ -10,6 +10,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")
 from src.algorithms.standard import standard_multiplication
 from src.algorithms.strassen import strassen_multiplication
 from src.algorithms.coppersmith import coppersmith_winograd
+from src.rl_framework.rl_generated_ops import apply_discovered_algorithm
 
 class MatrixMultiplicationEnv(gym.Env):
     """
@@ -20,7 +21,7 @@ class MatrixMultiplicationEnv(gym.Env):
         super(MatrixMultiplicationEnv, self).__init__()
 
         self.matrix_size = matrix_size
-        self.action_space = spaces.Discrete(3)  # 0 = Standard, 1 = Strassen, 2 = Coppersmith-Winograd
+        self.action_space = spaces.Discrete(4)  # 0 = Standard, 1 = Strassen, 2 = Coppersmith-Winograd, 3= RL-discovered
         self.observation_space = spaces.Box(low=-100, high=100, shape=(2 * matrix_size[0] * matrix_size[1],), dtype=np.float32)
 
         self.matrix_a = None
@@ -54,6 +55,9 @@ class MatrixMultiplicationEnv(gym.Env):
         elif action == 2:
             self.current_result = self.coppersmith_winograd_multiplication()
             print("Using Coppersmith-Winograd multiplication.")
+        elif action == 3:
+            self.current_result = apply_discovered_algorithm(self.matrix_a, self.matrix_b)
+            print("Using RL-discovered algorithm.")
         else:
             raise ValueError(f"Invalid action: {action}")  # Better error message
 
@@ -77,7 +81,7 @@ class MatrixMultiplicationEnv(gym.Env):
             self.action_history = state.get("action_history", [])
             initial_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
             info = {
-                "available_actions": [0, 1, 2],
+                "available_actions": [0, 1, 2, 3],  # Include the RL Discovered action
                 "action_history": self.action_history
             }
             return initial_state, info
@@ -119,6 +123,17 @@ class MatrixMultiplicationEnv(gym.Env):
             return n ** 2.8
         elif action == 2:
             return n ** 2.37
+        elif action == 3:
+            base_cost = 0.1 * (n ** 2) # Example: a cost proportional to matrix size squared
+            cost = 0
+            for historical_action in self.action_history:
+                if historical_action == 0:
+                    cost += n ** 3
+                elif historical_action == 1:
+                    cost += n ** 2.8
+                elif historical_action == 2:
+                    cost += n ** 2.37
+            return cost + base_cost
         return float("inf")
 
 

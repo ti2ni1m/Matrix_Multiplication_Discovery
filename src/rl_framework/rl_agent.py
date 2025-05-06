@@ -4,6 +4,7 @@ import torch.nn as nn
 import torch.optim as optim
 from mcts import MCTS
 from matrix_rl_env import MatrixMultiplicationEnv
+import time
 
 class PolicyNetwork(nn.Module):
     """
@@ -66,20 +67,35 @@ class RLAgent:
         Evaluate the agent's average reward over a number of episodes.
         """
         total_reward = 0
+        total_times_rl = [] # To store execution times for RL-chosen algorithm
         for _ in range(episodes):
-            state, info = self.env.reset() # Unpack the tuple
+            state, info = self.env.reset()
             done = False
             episode_reward = 0
+            episode_times_rl = []
             while not done:
-                action = self.select_action((state, info)) # Pass the full state tuple
+                action = self.select_action((state, info))
+                print(f"RL Agent chose action: {action}") # Debug print
+
+                start_time = time.time()
                 next_state, reward, done, next_info = self.env.step(action)
+                end_time = time.time()
+                execution_time = end_time - start_time
+                episode_times_rl.append(execution_time)
+
                 episode_reward += reward
                 state = next_state
                 info = next_info
             total_reward += episode_reward
+            if episode_times_rl:
+                total_times_rl.append(np.mean(episode_times_rl)) # Average time per episode
+
         avg_reward = total_reward / episodes
         print(f"Average reward over {episodes} episodes: {avg_reward:.2f}")
-        return avg_reward
+        if total_times_rl:
+            print(f"Average execution time (RL): {np.mean(total_times_rl):.4f} seconds") # Print average time
+
+        return avg_reward, total_times_rl # Return the times for plotting
 
     def train(self, episodes=1000, gamma=0.99):
         """
@@ -95,7 +111,7 @@ class RLAgent:
                 next_state, reward, done, next_info = self.env.step(action)
                 trajectory.append((state, action, reward))
                 state = next_state
-                info = next_info
+                info = next_info  # Update info here!
 
             # Compute discounted rewards
             G = 0
