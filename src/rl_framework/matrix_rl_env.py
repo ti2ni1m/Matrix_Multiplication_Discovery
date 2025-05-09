@@ -11,63 +11,141 @@ from src.algorithms.standard import standard_multiplication
 from src.algorithms.strassen import strassen_multiplication
 from src.algorithms.coppersmith import coppersmith_winograd
 from src.rl_framework.rl_generated_ops import apply_discovered_algorithm
+# Import the basic operation functions if you need them directly in the env
+from src.rl_framework.rl_generated_ops import (
+    basic_op_scalar_multiply,
+    basic_op_elementwise_add,
+    basic_op_transpose,
+    basic_op_multiply_subblocks,
+    basic_op_combine_subblocks,
+    basic_op_extract_submatrix,
+    basic_op_zero_matrix,
+    basic_op_hadamard_product,
+    basic_op_permute_rows,
+    basic_op_permute_cols,
+    basic_op_scale_row,
+    basic_op_scale_col,
+)
 
 class MatrixMultiplicationEnv(gym.Env):
     """
     Custom environment for matrix multiplication using RL.
     The goal is to learn an optimal sequence of operations to multiply matrices efficiently.
     """
-    def __init__(self, matrix_size=(4, 4)):
+    def __init__(self, matrix_size=(4, 4), max_steps=50):
         super(MatrixMultiplicationEnv, self).__init__()
 
         self.matrix_size = matrix_size
-        self.action_space = spaces.Discrete(4)  # 0 = Standard, 1 = Strassen, 2 = Coppersmith-Winograd, 3= RL-discovered
-        self.observation_space = spaces.Box(low=-100, high=100, shape=(2 * matrix_size[0] * matrix_size[1],), dtype=np.float32)
+        self.action_space = spaces.Discrete(4)  # Number of basic operations
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(matrix_size[0] * matrix_size[1] * (max_steps + 2),), dtype=np.float32)
 
-        self.matrix_a = None
-        self.matrix_b = None
-        self.current_result = None
+        self.initial_matrix_a = None
+        self.initial_matrix_b = None
+        self.intermediate_matrices = {'A': None, 'B': None}
+        self.steps_taken = 0
+        self.max_steps = max_steps
         self.action_history = []
+        self.current_result = None
+    
+    def _get_current_state_representation(self):
+        all_matrices = list(self.intermediate_matrices.values())
+        flattened = np.concatenate([m.flatten() for m in all_matrices]) if all_matrices else np.array([])
+        padded = np.pad(flattened, (0, self.observation_space.shape[0] - flattened.size), constant_values=0)
+        return padded[:self.observation_space.shape[0]]
 
     def step(self, action):
         """
         Execute an action and return (next_state, reward, done, info)
         """
-        print(f"Action received: {action}")  # Debugging line
-        print(f"Action type: {type(action)}")  # Print action type
+        print(f"Action received: {action}")
+        print(f"Action type: {type(action)}")
 
-        #Check if action is tensor
         if isinstance(action, torch.Tensor):
             action = action.item()
-        
         elif isinstance(action, np.ndarray):
             if action.size == 1:
                 action = action.item()
             else:
                 raise ValueError(f"Invalid action shape: {action.shape}")
 
-        if action == 0:
-            self.current_result = self.standard_multiplication()
-            print("Using standard multiplication.")
-        elif action == 1:
-            self.current_result = self.strassen_multiplication()
-            print("Using Strassen multiplication.")
-        elif action == 2:
-            self.current_result = self.coppersmith_winograd_multiplication()
-            print("Using Coppersmith-Winograd multiplication.")
-        elif action == 3:
-            self.current_result = apply_discovered_algorithm(self.matrix_a, self.matrix_b)
-            print("Using RL-discovered algorithm.")
-        else:
-            raise ValueError(f"Invalid action: {action}")  # Better error message
-
-        reward = -self.compute_cost(action)
-        done = True  # One-shot episode
+        reward = -0.1
+        done = False
+        info = {"action_history": self.action_history}
         self.action_history.append(action)
+        self.steps_taken += 1
 
-        next_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
+        matrices = self.intermediate_matrices
 
-        return next_state, reward, done, {}
+        try:
+            if action == 0:
+                matrices['A'] = basic_op_scalar_multiply(matrices['A'], 2)
+            elif action == 1:
+                matrices['Sum_AB_' + str(self.steps_taken)] = basic_op_elementwise_add(matrices['A'], matrices['B'])
+            elif action == 2:
+                matrices['B_T_' + str(self.steps_taken)] = basic_op_transpose(matrices['B'])
+            elif action == 3:
+                n = self.matrix_size[0]
+                if n >= 2:
+                    a_sub = matrices['A'][:n//2, :n//2]
+                    b_sub = matrices['B'][:n//2, :n//2]
+                    matrices['P1_' + str(self.steps_taken)] = basic_op_multiply_subblocks(a_sub, b_sub, n // 2)
+            elif action == 4:
+                keys = list(matrices.keys())
+                if len(keys) >= 4:
+                    subs = [matrices[keys[j]] for j in range(len(matrices) - 4, len(matrices))]
+                    try:
+                        matrices['Combined_' + str(self.steps_taken)] = basic_op_combine_subblocks(subs, (2, 2))
+                    except ValueError as e:
+                        print(f"Error combining sub-blocks: {e}")
+            elif action == 5:
+                matrices['A_sub_' + str(self.steps_taken)] = basic_op_extract_submatrix(matrices['A'], 0, 2, 0, 2)
+            elif action == 6:
+                matrices['Zero_' + str(self.steps_taken)] = basic_op_zero_matrix(self.matrix_size)
+            elif action == 7:
+                if matrices['A'].shape == matrices['B'].shape:
+                    matrices['Hadamard_' + str(self.steps_taken)] = basic_op_hadamard_product(matrices['A'], matrices['B'])
+            elif action == 8:
+                if matrices['A'].shape[0] >= 2:
+                    matrices['Perm_rows_A_' + str(self.steps_taken)] = basic_op_permute_rows(matrices['A'].copy(), 0, 1)
+            elif action == 9:
+                if matrices['B'].shape[1] >= 2:
+                    matrices['Perm_cols_B_' + str(self.steps_taken)] = basic_op_permute_cols(matrices['B'].copy(), 0, 1)
+            elif action == 10:  # Call apply_discovered_algorithm
+                try:
+                    self.current_result = apply_discovered_algorithm(
+                        self.initial_matrix_a,
+                        self.initial_matrix_b,
+                        self.action_history,  # Pass the action history
+                        self.intermediate_matrices.copy()
+                    )
+                except Exception as e:
+                    print(f"Error applying discovered algorithm: {e}")
+                    self.current_result = np.zeros_like(self.initial_matrix_a)
+
+            # Check for a potential result (4x4 matrix)
+            for name, matrix in matrices.items():
+                if matrix.shape == (self.matrix_size[0], self.matrix_size[1]):
+                    true_product = np.dot(self.initial_matrix_a, self.initial_matrix_b)
+                    if np.allclose(matrix, true_product, atol=1e-5):
+                        reward = 10
+                        done = True
+                        break
+
+        except Exception as e:
+            print(f"Error during step: {e}")
+            reward = -1
+
+        if self.steps_taken >= self.max_steps:
+            done = True
+
+        next_state = self._get_current_state_representation()
+        info['available_actions'] = list(range(self.action_space.n))
+        return next_state, reward, done, info
+
+    def render(self, mode="human"):
+        print("Intermediate Matrices:")
+        for name, matrix in self.intermediate_matrices.items():
+            print(f"{name}:\n{matrix}")
 
     def reset(self, seed=None, options=None, state=None):
         """
@@ -75,29 +153,17 @@ class MatrixMultiplicationEnv(gym.Env):
         If a state dictionary is provided, restore from it.
         """
         super().reset(seed=seed)
-        if state is not None:
-            self.matrix_a = state.get("matrix_a")
-            self.matrix_b = state.get("matrix_b")
-            self.action_history = state.get("action_history", [])
-            initial_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
-            info = {
-                "available_actions": [0, 1, 2, 3],  # Include the RL Discovered action
-                "action_history": self.action_history
-            }
-            return initial_state, info
+        if state is None:
+            self.initial_matrix_a = np.random.rand(*self.matrix_size).astype(np.float32)
+            self.initial_matrix_b = np.random.rand(*self.matrix_size).astype(np.float32)
         else:
-            low = -10
-            high = 10
-            self.matrix_a = self.np_random.integers(low, high, size=self.matrix_size).astype(np.float32)
-            self.matrix_b = self.np_random.integers(low, high, size=self.matrix_size).astype(np.float32)
-            self.current_result = None
-            self.action_history = []
-            initial_state = np.concatenate((self.matrix_a.flatten(), self.matrix_b.flatten())).astype(np.float32)
-            info = {
-                "available_actions": [0, 1, 2],
-                "action_history": self.action_history
-            }
-            return initial_state, info
+            self.initial_matrix_a = state['matrix_a'].copy()
+            self.initial_matrix_b = state['matrix_b'].copy()
+        self.intermediate_matrices = {'A': self.initial_matrix_a.copy(), 'B': self.initial_matrix_b.copy()}
+        self.steps_taken = 0
+        self.action_history = []
+        self.current_result = None
+        return self._get_current_state_representation(), {}
     
 
     def render(self, mode="human"):

@@ -7,15 +7,13 @@ class Node:
     """
     Represents a node in the MCTS search tree.
     """
-    def __init__(self, state, parent=None, action=None):
-        if state is None:
-            raise ValueError("Node initialized with None state")
-        self.state = state  # State of the environment (now a tuple)
-        self.parent = parent  # Parent node
-        self.action = action  # Action taken to reach this state
-        self.children = []  # Child nodes
-        self.visit_count = 0  # Number of visits to this node
-        self.value = 0  # Total value (reward) accumulated from this node
+    def __init__(self, state_info, parent=None, prior=0.0):
+        self.state_info = state_info
+        self.parent = parent
+        self.children = {}
+        self.visit_count = 0
+        self.total_reward = 0
+        self.prior = prior  # Store the prior probability
 
     def is_fully_expanded(self):
         """
@@ -47,28 +45,53 @@ class Node:
         return best_child
 
 
-
 class MCTS:
     """
     Monte Carlo Tree Search for Matrix Multiplication RL Agent.
     """
-    def __init__(self, env: MatrixMultiplicationEnv, policy_net, simulations=100):
+    def __init__(self, env, policy_net, num_simulations=100, exploration_constant=1.0):
         self.env = env
-        self.policy_net = policy_net  # Used for generating probabilities (for action selection)
-        self.simulations = simulations  # Number of MCTS simulations per action selection
+        self.policy_net = policy_net
+        self.num_simulations = num_simulations
+        self.exploration_constant = exploration_constant
+        self.root = None  # Initialize the root node to None
+        print(f"MCTS.__init__: env matrix_size: {self.env.matrix_size}")
+
+    def select(self, node):
+        """Select a leaf node in the MCTS tree using UCT."""
+        while node.children:
+            best_child = None
+            best_uct = -float('inf')
+            for child in node.children.values():
+                uct = self.uct(child, self.exploration_constant)
+                if uct > best_uct:
+                    best_uct = uct
+                    best_child = child
+            node = best_child
+        return node
+
+    def uct(self, node, c):
+        """Compute the Upper Confidence Bound for Trees (UCT) value."""
+        if node.visit_count == 0:
+            return float('inf')
+        exploitation = node.total_reward / node.visit_count
+        exploration = c * np.sqrt(np.log(node.parent.visit_count) / node.visit_count)
+        return exploitation + exploration
 
     def simulate(self, node):
         """
         Simulates a game from the current node to get an estimate of its value.
         """
         # Get the flattened state (NumPy array) from the node
-        if isinstance(node.state, tuple) and len(node.state) == 2:
-            current_state_flat = node.state[0]
-            info = node.state[1]
+        if isinstance(node.state_info, tuple) and len(node.state_info) == 2:  # Changed node.state to node.state_info
+            current_state_flat = node.state_info[0]
+            info = node.state_info[1]
         else:
             raise ValueError("Unsupported state structure in simulate (expected a tuple)")
 
         n = self.env.matrix_size[0]
+        print(f"MCTS.simulate: env matrix_size: {self.env.matrix_size}, n: {n}")
+        print(f"MCTS.simulate: current_state_flat size: {len(current_state_flat)}")
         matrix_a = current_state_flat[:n*n].reshape(self.env.matrix_size)
         matrix_b = current_state_flat[n*n:].reshape(self.env.matrix_size)
 
@@ -107,7 +130,7 @@ class MCTS:
                         next_state_flat, reward, _, _ = self.env.step(action)
                         next_info = {'available_actions': list(range(self.env.action_space.n)), 'action_history': info.get('action_history', []) + [action]}
                         child_node = Node(state=(next_state_flat, next_info), parent=node, action=action)
-                        node.children.append(child_node)
+                        node.children[action] = child_node  # Use action as key for children dict
                         break # Expand one child at a time
             else:
                 raise ValueError("State info dictionary missing 'available_actions'")
@@ -120,35 +143,42 @@ class MCTS:
         """
         while node is not None:
             node.visit_count += 1
-            node.value += reward
+            node.total_reward += reward
             node = node.parent
 
-    def search(self, state):
-        """
-        Performs MCTS and returns a probability distribution over actions.
-        """
-        root = Node(state=state)
-        if root is None:
-            raise ValueError("Root node is None. Check initial state format.")
-        
-        for _ in range(self.simulations):
-            node = root
-            # Selection
-            while node.is_fully_expanded() and node.children:
-                node = node.best_child()
-
-            # Expansion
-            if not node.is_fully_expanded():
-                self.expand(node)
-
-            # Simulation
+    def search(self, state_info):
+        """Perform MCTS search for the best action."""
+        state, info = state_info
+        print(f"MCTS.search: Received state type: {type(state)}, shape: {state.shape if hasattr(state, 'shape') else len(state)}")
+        root_node = self.root = Node(state_info, parent=None, prior=1.0)
+        for _ in range(self.num_simulations):  # Changed from self.simulations
+            node = self.select(root_node)
             reward = self.simulate(node)
-
-            # Backpropagation
             self.backpropagate(node, reward)
+        return self.policy(root_node)
 
-        visit_counts = np.array([child.visit_count for child in root.children])
-        probabilities = visit_counts / visit_counts.sum() 
+    def policy(self, node, temperature=1.0):
+        """
+        Returns the action probabilities as a NumPy array.
+        """
+        visits = {action: child.visit_count for action, child in node.children.items()}
+        total_visits = sum(visits.values())
+        num_actions = self.env.action_space.n
+        probabilities = np.zeros(num_actions, dtype=np.float32)
+
+        if total_visits > 0:
+            for action in range(num_actions):
+                if action in visits:
+                    probabilities[action] = visits[action] ** (1 / temperature) / total_visits ** (1 / temperature)
+                else:
+                    probabilities[action] = 1e-6  # Small probability for unexplored actions
+
+            # Normalize probabilities to sum to 1
+            probabilities /= np.sum(probabilities)
+        else:
+            # Return uniform probabilities if no visits yet
+            probabilities[:] = 1.0 / num_actions
+
         return probabilities
 
 if __name__ == "__main__":
